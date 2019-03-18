@@ -14,7 +14,7 @@ describe('app-wc-core-demo', () => {
 
     const wcCoreElement = await page.find('app-root >>> app-wc-core-demo');
     const element = wcCoreElement.shadowRoot.querySelector('div');
-    expect(element.textContent).toContain('Hello! My name is Wc-core-demo.');
+    expect(element.textContent).toContain('Hello! My name is wc-core-demo.');
   });
 
   // it('includes a div with the class "app-wc-core-demo"', async () => {

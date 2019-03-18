@@ -9,23 +9,18 @@ import { MatchResults } from '@stencil/router';
 export class AppWcCoreDemo {
   @Prop() match: MatchResults;
 
-  normalize(name: string): string {
-    if (name) {
-      return name.substr(0, 1).toUpperCase() + name.substr(1).toLowerCase();
-    }
-    return '';
-  }
-
   render() {
-    if (this.match && this.match.params.name) {
-      return (
-        <div class="app-wc-core-demo">
-          <p>
-            Hello! My name is {this.normalize(this.match.params.name)}. My name was passed in
+    return (
+      <div class="app-wc-core-demo">
+        {(this.match && this.match.params.name)
+          ?<p>
+            Hello! My name is {this.match.params.name}. My name was passed in
             through a route param!
           </p>
-        </div>
-      );
-    }
+          : <span></span>
+        }
+        <p>hi</p>
+      </div>
+    );
   }
 }
