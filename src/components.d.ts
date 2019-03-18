@@ -28,6 +28,13 @@ export namespace Components {
 
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
+
+  interface AppWcCoreDemo {
+    'match': MatchResults;
+  }
+  interface AppWcCoreDemoAttributes extends StencilHTMLAttributes {
+    'match'?: MatchResults;
+  }
 }
 
 declare global {
@@ -35,12 +42,14 @@ declare global {
     'AppHome': Components.AppHome;
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
+    'AppWcCoreDemo': Components.AppWcCoreDemo;
   }
 
   interface StencilIntrinsicElements {
     'app-home': Components.AppHomeAttributes;
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
+    'app-wc-core-demo': Components.AppWcCoreDemoAttributes;
   }
 
 
@@ -62,16 +71,24 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLAppWcCoreDemoElement extends Components.AppWcCoreDemo, HTMLStencilElement {}
+  var HTMLAppWcCoreDemoElement: {
+    prototype: HTMLAppWcCoreDemoElement;
+    new (): HTMLAppWcCoreDemoElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
+    'app-wc-core-demo': HTMLAppWcCoreDemoElement
   }
 
   interface ElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'app-wc-core-demo': HTMLAppWcCoreDemoElement;
   }
 
 
