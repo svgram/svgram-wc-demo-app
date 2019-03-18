@@ -10,11 +10,11 @@ describe('app-wc-core-demo', () => {
   });
 
   it('displays the specified name', async () => {
-    const page = await newE2EPage({ url: '/profile/joseph' });
+    const page = await newE2EPage({ url: '/wccoredemo/wc-core-demo' });
 
-    const profileElement = await page.find('app-root >>> app-wc-core-demo');
-    const element = profileElement.shadowRoot.querySelector('div');
-    expect(element.textContent).toContain('Hello! My name is Joseph.');
+    const wcCoreElement = await page.find('app-root >>> app-wc-core-demo');
+    const element = wcCoreElement.shadowRoot.querySelector('div');
+    expect(element.textContent).toContain('Hello! My name is Wc-core-demo.');
   });
 
   // it('includes a div with the class "app-wc-core-demo"', async () => {
