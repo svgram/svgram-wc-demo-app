@@ -1,18 +1,23 @@
 # SVGram WebComponent Demo App
 
-## Prepare a page for hosting a webcomponent
+Using nad displaying a webcomponent with Stencil App starter
+
+### Prepare a page for hosting a webcomponent
 
 * Copy /src/components/app-profile to /src/components/app-wc-core-demo
 * In all files in /app-wc-core-demo/ search-replace from app-profile
 * In /src/components/app-root/app-root.tsx add a route to the new page:
 ```typescript
-              <stencil-route url='/wccoredemo/:name' component='app-wc-core-demo' />
+  <stencil-route url='/wccoredemo/:name' component='app-wc-core-demo' />
 ```
 * In /src/components/app-home/app-home.tsx rename link-button to the new page:
 ```typescript
-        <stencil-route-link url='/wccoredemo/wc-core-demo'>
+  <stencil-route-link url='/wccoredemo/wc-core-demo'>
 ```
 
+### Fetch svgram-wc-core webcomponents and use <svgram-canvas>
+
+* Install
 ```bash
 # install StencilJs
 npm install
@@ -20,7 +25,7 @@ npm install
 npm install @svgram/svgram-wc-core --save
 ```
 
-* In /src/components/app-wc-core-demo/app-wc-core-demo.tsx 
+* In /src/components/app-wc-core-demo/app-wc-core-demo.tsx use <svgram-canvas>
 ```typescript
 // Import component - instead of loading it via <script> in index.html
 import '@svgram/svgram-wc-core'; // the webcomponent
@@ -51,7 +56,7 @@ export class AppWcCoreDemo {
   }
 }
 ```
-
+* Run
 ```bash
 # run the app in a browser
 npm start
