@@ -9,6 +9,7 @@ import '@stencil/core';
 
 import '@stencil/router';
 import '@stencil/state-tunnel';
+import '@svgram/svgram-wc-core';
 import {
   MatchResults,
 } from '@stencil/router';
