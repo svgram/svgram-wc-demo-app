@@ -1,7 +1,61 @@
 # SVGram WebComponent Demo App
 
+## Prepare a page for hosting a webcomponent
 
+* Copy /src/components/app-profile to /src/components/app-wc-core-demo
+* In all files in /app-wc-core-demo/ search-replace from app-profile
+* In /src/components/app-root/app-root.tsx add a route to the new page:
+```typescript
+              <stencil-route url='/wccoredemo/:name' component='app-wc-core-demo' />
+```
+* In /src/components/app-home/app-home.tsx rename link-button to the new page:
+```typescript
+        <stencil-route-link url='/wccoredemo/wc-core-demo'>
+```
 
+```bash
+# install StencilJs
+npm install
+# install webcomponent
+npm install @svgram/svgram-wc-core --save
+```
+
+* In /src/components/app-wc-core-demo/app-wc-core-demo.tsx 
+```typescript
+// Import component - instead of loading it via <script> in index.html
+import '@svgram/svgram-wc-core'; // the webcomponent
+
+@Component({
+  tag: 'app-wc-core-demo',
+  styleUrl: 'app-wc-core-demo.css',
+  shadow: true
+})
+export class AppWcCoreDemo {
+  @Prop() match: MatchResults;
+
+  private setSv5Shapes(){
+    // create some data to present in the component
+    let container =  {
+    shapes: [{ "x": "100px", "y": "10px", "width": "80px", "heigth": "70px", "stroke": "red", "fill": "green"},
+    { "x": "200px", "y": "10px", "width": "70px", "heigth": "60px", "stroke": "blue", "fill": "brown"}]
+    };
+    return JSON.stringify(container);  
+  };  
+
+  render() {
+    return (
+      <div class="app-wc-core-demo">
+        <svgram-canvas id="canvas" first="Sv5" last="Canvas" content={this.setSv5Shapes()} ></svgram-canvas>
+      </div>
+    );
+  }
+}
+```
+
+```bash
+# run the app in a browser
+npm start
+```
 
 ---
 
